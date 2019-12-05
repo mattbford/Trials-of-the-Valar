@@ -1,0 +1,193 @@
+<mainScreen>:
+    orientation: 'vertical'
+    canvas.before:
+        Rectangle:
+            size: self.size
+            pos: self.pos
+            source: 'images/background.jpg'
+
+    GridLayout:
+        cols: 1        
+        padding: 20,0,0,0
+        size: root.width, root.height
+        Label:
+            font_name: 'Tolkien.ttf'
+            text: 'The Trials of the Valar'
+            color: 0, 0, 0, 1
+            font_size: sp(48)
+        BoxLayout:
+            padding: 20, 0
+            height: "60dp"
+            size_hint_y: None
+            width: "200dp"
+            TextInput:
+                id: input
+                size_hint_x: 15
+                font_name: 'Tolkien.ttf'
+                hint_text: 'Type a sentence, paragraph, or quote.....'
+            Button:
+                text: "Judgement"
+                font_name: "Tolkien.ttf"
+                size_hint_x: 5
+                background_color: 0.8,1,1,.5
+                on_press:
+                    #root.manager.current = 'results'
+                    #root.manager.get_screen('results').processResults(input.text)
+                    app.processResults(input.text)
+        Label:
+            font_name: 'Tolkien.ttf'
+            text: 'Plead your case before the west and see the reach of your corruption'
+            color: 0, 0, 0, 1
+            font_size: sp(24)
+        GridLayout:
+            cols: 3
+            height: "10dp"
+            BoxLayout:
+                size_hint_x: .05
+                Button:
+                    background_color: 0, 0, 0, 0
+                    text: "Mute"
+                    font_name: "Tolkien.ttf"
+                    size_hint_x:  "5dp"
+                    on_press: app.toggleAudio(vol_slider)
+            BoxLayout:
+                size_hint_x: .2
+                padding: 0,0,0,2
+                Slider:
+                    id: vol_slider
+                    size_hint_x: "40dp"
+                    cursor_size: 20,20
+                    value: 25
+                    step: 1
+                    on_value: app.audioVolume(self.value)
+                    orientation: 'horizontal'
+            BoxLayout:
+                size_hint_x: .75
+
+#<resultsScreen>:
+#    orientation: 'vertical'
+#    canvas.before:
+#        Rectangle:
+#            size: self.size
+#            pos: self.pos
+#            source: 'images/background.jpg'
+#
+#    GridLayout:
+#        cols: 2
+#        BoxLayout:
+#            size_hint_x: .1
+#            Button:
+#                text: "<-"
+#                font_size: sp(48)
+#                background_color: 0,0,0,0
+#                on_press:
+#                    root.manager.current = 'main'
+#        BoxLayout:
+#            size_hint_x: .9
+#    GridLayout:
+#        cols: 1
+#        Label:
+
+<freeScreen>:
+    orientation: 'vertical'
+    canvas.before:
+        Rectangle:
+            size: self.size
+            pos: self.pos
+            source: 'images/background.jpg'
+
+    RelativeLayout:
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        Button:
+            size_hint_x: .1
+            size_hint_y: .1
+            pos_hint: {'left': 1, 'top': 1}
+            text: "<-"
+            font_size: sp(48)
+            background_color: 0,0,0,0
+            on_press:
+                root.manager.current = 'main'
+        Label:
+            font_name: 'Tolkien.ttf'
+            text: "You have been spared from the dark lord's blight"
+            color: 0, 0, 0, 1
+            font_size: sp(24)
+
+<minorScreen>:
+    orientation: 'vertical'
+    canvas.before:
+        Rectangle:
+            size: self.size
+            pos: self.pos
+            source: 'images/minorCorruption.jpg'
+
+    RelativeLayout:
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        Button:
+            size_hint_x: .1
+            size_hint_y: .1
+            pos_hint: {'left': 1, 'top': 1}
+            text: "<-"
+            font_size: sp(48)
+            background_color: 0,0,0,0
+            on_press:
+                root.manager.current = 'main'
+        Label:
+            font_name: 'Tolkien.ttf'
+            text: "Be wary as your mind bares a sliver of Morgoth's darkness."
+            color: 1, 1, 1, 1
+            font_size: sp(24)
+    
+
+<majorScreen>:
+    orientation: 'vertical'
+    canvas.before:
+        Rectangle:
+            size: self.size
+            pos: self.pos
+            source: 'images/majorCorruption.jpg'
+
+    RelativeLayout:
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        Button:
+            size_hint_x: .1
+            size_hint_y: .1
+            pos_hint: {'left': 1, 'top': 1}
+            text: "<-"
+            font_size: sp(48)
+            background_color: 0,0,0,0
+            on_press:
+                root.manager.current = 'main'
+        Label:
+            font_name: 'Tolkien.ttf'
+            text: "Melkor's corruption has polluted your mind and filled it with vile thoughts."
+            color: 1, 1, 1, 1
+            font_size: sp(24)
+    
+    
+<maliceScreen>:
+    orientation: 'vertical'
+    canvas.before:
+        Rectangle:
+            size: self.size
+            pos: self.pos
+            source: 'images/pureMalice.jpg'
+
+    RelativeLayout:
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        Button:
+            size_hint_x: .1
+            size_hint_y: .1
+            pos_hint: {'left': 1, 'top': 1}
+            text: "<-"
+            font_size: sp(48)
+            background_color: 0,0,0,0
+            on_press:
+                root.manager.current = 'main'
+        Label:
+            font_name: 'Tolkien.ttf'
+            text: "The Valar have determined that you have fallen to the dark lord's will."
+            color: 1, 1, 1, 1
+            font_size: sp(24)
+
+    
